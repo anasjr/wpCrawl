@@ -118,4 +118,8 @@ class Crawler
         // Return the array of crawled URLs.
         return $results;
     }
+    public static function isValidUrl($url)
+    {
+        return preg_match('/^https?:\/\/[a-zA-Z0-9\-\.]+\\.[a-zA-Z]{2,}(\/[a-zA-Z0-9\-._?\'\/\\+&%=#$=~]*)?$/', $url);
+    }
 }

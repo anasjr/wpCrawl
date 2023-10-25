@@ -26,10 +26,7 @@ $browser = new HttpBrowser($httpClient);
 
 $crawler = $_SESSION['crawler'] ?? null;
 
-function isValidUrl($url)
-{
-    return preg_match('/^https?:\/\/[a-zA-Z0-9\-\.]+\\.[a-zA-Z]{2,}(\/[a-zA-Z0-9\-._?\'\/\\+&%=#$=~]*)?$/', $url);
-}
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['crawl'])) {
@@ -37,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (empty($url)) {
             $error = "URL is required to trigger a crawl.";
-        } elseif (!isValidUrl($url)) {
+        } elseif (!Crawler::isValidUrl($url)) {
             $urlError = "Invalid URL format. Please enter a valid URL.";
         } else {
             $db = new Database($dbHost, $dbName, $dbUsername, $dbPassword);
