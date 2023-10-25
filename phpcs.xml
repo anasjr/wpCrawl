@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<ruleset name="My Coding Standard">
+    <description>Custom coding standard based on PSR-2</description>
+
+    <file>.</file>
+
+    <arg name="colors" />
+    <arg name="cache" />
+
+    <!-- Target directories -->
+    <file>./src</file>
+    <file>./public</file>
+
+    <!-- PSR-2 standard -->
+    <rule ref="PSR2" />
+
+     <!-- Exclude specific directories or files -->
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>node_modules/*</exclude-pattern>
+    <!-- Additional rules or sniffs can be added if needed -->
+
+</ruleset>

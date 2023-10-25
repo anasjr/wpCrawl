@@ -6,7 +6,6 @@ require __DIR__ . '/../vendor/autoload.php';
 use Database\Database;
 use Dotenv\Dotenv;
 
-
 $dotenv = Dotenv::createUnsafeImmutable(__DIR__ . '/../');
 $dotenv->load();
 
@@ -37,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - codingnepalweb.com -->
+
 <html lang="en">
 
 <head>
@@ -67,9 +66,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <?php endif; ?>
                         <input type="text" id="username" name="username" class="input" placeholder="username" required>
                     </div>
-
                     <div class="field input-field">
-                        <input type="password" id="password" name="password" placeholder="Password" class="password" required>
+                    <input type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        class="password"
+                        required>
                         <i class='bx bx-hide eye-icon'></i>
                     </div>
 
