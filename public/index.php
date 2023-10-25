@@ -58,7 +58,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['showResults']) && isset($_SESSION['crawler'])) {
         $results = $_SESSION['crawler']['results'];
     }
-    
 }
 ?>
 
