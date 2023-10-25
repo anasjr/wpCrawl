@@ -58,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['showResults']) && isset($_SESSION['crawler'])) {
         $results = $_SESSION['crawler']['results'];
     }
+    
 }
 ?>
 
@@ -103,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <li><?php echo htmlspecialchars($result); ?></li>
             <?php endforeach; ?>
         </ul>
-    <?php else : ?>
+    <?php elseif (isset($_POST['showResults'])) : ?>
         <p>No existing results</p>
     <?php endif; ?>
 
