@@ -13,13 +13,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up PHP
+      - name: Set up PHP and Composer
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.4
+          php-version: 8.1.6
+          tools: composer
 
-      - name: Install Composer dependencies
-        run: composer install
+      - name: Install PHP CodeSniffer
+        run: composer global require "squizlabs/php_codesniffer=*"
 
       - name: Run PHPCS
-        run: vendor/bin/phpcs --standard=phpcs.xml --colors .
+        run: ~/.composer/vendor/bin/phpcs --standard=PSR2 --colors .
+
+      - name: Clean up
+        run: composer global remove squizlabs/php_codesniffer
