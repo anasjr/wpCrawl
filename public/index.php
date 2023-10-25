@@ -1,5 +1,5 @@
 <?php
-session_start();
+require __DIR__ . '/session.php';
 
 use Database\Database;
 use Dotenv\Dotenv;

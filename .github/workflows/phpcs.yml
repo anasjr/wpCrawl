@@ -24,8 +24,8 @@ jobs:
 
       - name: Run PHPCS and Auto-fix
         run: |
-          ~/.composer/vendor/bin/phpcs --standard=PSR2 --colors .
-          ~/.composer/vendor/bin/phpcbf --standard=PSR2 .
+          ~/.composer/vendor/bin/phpcs --standard=phpcs.xml --colors .
+          ~/.composer/vendor/bin/phpcbf --standard=phpcs.xml .
 
       - name: Clean up
         run: composer global remove squizlabs/php_codesniffer
