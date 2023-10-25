@@ -22,8 +22,8 @@ jobs:
       - name: Install PHP CodeSniffer
         run: composer global require "squizlabs/php_codesniffer=*"
 
-      - name: Add Composer Global Bin Directory to PATH
-        run: echo "::add-path::${HOME}/.composer/vendor/bin"
-
       - name: Run PHPCS
-        run: phpcs --standard=PSR2 --colors .
+        run: ~/.composer/vendor/bin/phpcs --standard=PSR2 --colors .
+
+      - name: Clean up
+        run: composer global remove squizlabs/php_codesniffer
