@@ -1,4 +1,4 @@
-name: PHPCS Check
+name: PHPCS Check and Fix
 
 on:
   push:
@@ -16,14 +16,16 @@ jobs:
       - name: Set up PHP and Composer
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.1.6
+          php-version: 7.4
           tools: composer
 
       - name: Install PHP CodeSniffer
         run: composer global require "squizlabs/php_codesniffer=*"
 
-      - name: Run PHPCS
-        run: ~/.composer/vendor/bin/phpcs --standard=phpcs.xml --colors .
+      - name: Run PHPCS and Auto-fix
+        run: |
+          ~/.composer/vendor/bin/phpcs --standard=PSR2 --colors .
+          ~/.composer/vendor/bin/phpcbf --standard=PSR2 .
 
       - name: Clean up
         run: composer global remove squizlabs/php_codesniffer
